@@ -7,11 +7,25 @@ spring:
         webflux:
           discovery:
             locator:
-              enabled: true
+              # Set as 'false' since we have the setupRouteConfig()
+              enabled: false
               lower-case-service-id: true
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowed-origins: '*'
+                allow-credentials: false
+                allowed-methods: '*'
+                allowed-headers: '*'
 
 server:
   port: 8072
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-store-type: PKCS12
+    key-alias: 1
 
 management:
   endpoints:

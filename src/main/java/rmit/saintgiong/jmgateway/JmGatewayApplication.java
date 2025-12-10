@@ -9,5 +9,4 @@ public class JmGatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(JmGatewayApplication.class, args);
     }
-
 }
