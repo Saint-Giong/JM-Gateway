@@ -6,22 +6,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AuthRoute {
+public class ProfileRoute {
 
     @Bean
-    public RouteLocator setupAuthRouteConfig(RouteLocatorBuilder builder) {
+    public RouteLocator setupProfileRouteConfig(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(
                         p -> p
-                                .path("/v1/auth/**")
+                                .path("/v1/profile/**")
                                 .filters(
                                         spec -> spec
                                                 .rewritePath(
-                                                        "/v1/auth/(?<segment>.*)",
+                                                        "/v1/profile/(?<segment>.*)",
                                                         "/${segment}"
                                                 )
                                 )
-                                .uri("lb://AUTH-SERVICE")
+                                .uri("lb://PROFILE-SERVICE")
                 )
                 .build();
     }
