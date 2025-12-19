@@ -16,24 +16,15 @@ public class CorsConfig {
         public CorsWebFilter corsWebFilter() {
                 CorsConfiguration corsConfig = new CorsConfiguration();
 
-                // Allow these origins
-                corsConfig.setAllowedOrigins(Arrays.asList(
-                                "https://jm.saintgiong.ttr.gg",
-                                "http://localhost:3000",
-                                "http://localhost:3001"));
+                // Allow all origins using patterns (required when allowCredentials is true)
+                corsConfig.setAllowedOriginPatterns(List.of("*"));
 
                 // Allow all HTTP methods
                 corsConfig.setAllowedMethods(Arrays.asList(
                                 "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 
-                // Allow common headers
-                corsConfig.setAllowedHeaders(Arrays.asList(
-                                "Content-Type",
-                                "Authorization",
-                                "Cookie",
-                                "X-Requested-With",
-                                "Accept",
-                                "Origin"));
+                // Allow all headers
+                corsConfig.setAllowedHeaders(List.of("*"));
 
                 // Allow credentials (cookies)
                 corsConfig.setAllowCredentials(true);
