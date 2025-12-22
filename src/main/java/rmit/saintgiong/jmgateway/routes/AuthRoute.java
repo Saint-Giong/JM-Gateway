@@ -18,11 +18,11 @@ public class AuthRoute {
                                 .path("/v1/auth/**")
                                 .filters(
                                         spec -> spec
+                                                .filter(jweAuthenticationFilter.apply(new JweAuthenticationFilter.Config()))
                                                 .rewritePath(
                                                         "/v1/auth/(?<segment>.*)",
                                                         "/${segment}"
                                                 )
-                                                .filter(jweAuthenticationFilter.apply(new JweAuthenticationFilter.Config()))
                                 )
                                 .uri("lb://AUTH-SERVICE")
                 )
