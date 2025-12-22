@@ -8,14 +8,14 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
-import rmit.saintgiong.authapi.internal.dto.common.ErrorResponseDto;
+import rmit.saintgiong.jmgateway.common.dto.ErrorResponseDto;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-@Slf4j
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
@@ -32,40 +32,6 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(errorResponseDto);
-    }
-
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorResponseDto> handleResourceNotFoundException(
-            Exception exception,
-            WebRequest request
-    ) {
-        ErrorResponseDto errorResponseDto = ErrorResponseDto.builder()
-                .apiPath(request.getDescription(false).replace("uri=", ""))
-                .errorCode(HttpStatus.NOT_FOUND)
-                .message(exception.getMessage())
-                .timeStamp(LocalDateTime.now())
-                .build();
-
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(errorResponseDto);
-    }
-
-    @ExceptionHandler(CompanyAccountAlreadyExisted.class)
-    public ResponseEntity<ErrorResponseDto> handleCompanyAccountAlreadyExistedException(
-            Exception exception,
-            WebRequest request
-    ) {
-        ErrorResponseDto errorResponseDto = ErrorResponseDto.builder()
-                .apiPath(request.getDescription(false).replace("uri=", ""))
-                .errorCode(HttpStatus.BAD_REQUEST)
-                .message(exception.getMessage())
-                .timeStamp(LocalDateTime.now())
-                .build();
-
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
                 .body(errorResponseDto);
     }
 
