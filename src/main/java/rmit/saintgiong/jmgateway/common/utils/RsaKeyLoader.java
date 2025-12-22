@@ -13,20 +13,8 @@ import java.util.Base64;
 // Utility component for loading RSA public and private keys from PEM format.
 @Component
 public class RsaKeyLoader {
-
-    @Value("${PUBLIC_KEY_B64:}")
-    private String publicKeyB64Prop;
-
-    @Value("${PRIVATE_KEY_B64:}")
+    @Value("${jwe.private-key}")
     private String privateKeyB64Prop;
-
-    // Load Public Key
-    public RSAPublicKey loadPublicKey() throws Exception {
-        byte[] encoded = Base64.getDecoder().decode(publicKeyB64Prop);
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
-        return (RSAPublicKey) keyFactory.generatePublic(keySpec);
-    }
 
     // Load Private Key
     public RSAPrivateKey loadPrivateKey() throws Exception {

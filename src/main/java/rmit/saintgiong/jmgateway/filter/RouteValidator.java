@@ -26,9 +26,15 @@ public class RouteValidator {
                     .map(AUTH_PREFIX::concat)
                     .toList();
 
+    public static final List<String> GLOBAL_PUBLIC_ENDPOINTS = List.of(
+            "/v1/*/actuator/**",
+            "/actuator/**",
+            "/eureka/**"
+    );
 
     private static final List<String> PUBLIC_ENDPOINTS =
             Stream.of(
+                            GLOBAL_PUBLIC_ENDPOINTS,
                             AUTH_PUBLIC_ENDPOINTS
                     )
                     .flatMap(List::stream)

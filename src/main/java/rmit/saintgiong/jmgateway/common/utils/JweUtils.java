@@ -9,6 +9,7 @@ import com.nimbusds.jwt.JWTClaimsSet;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import rmit.saintgiong.jmgateway.common.dto.TokenClaimsDto;
 import rmit.saintgiong.jmgateway.common.exception.InvalidTokenException;
@@ -28,9 +29,10 @@ import java.util.UUID;
 @Component
 @Slf4j
 public class JweUtils {
+    @Value("${jwe.private-key}")
+    private RSAPrivateKey privateKey;
 
     private RsaKeyLoader keyLoader;
-    private RSAPrivateKey privateKey;
 
     private List<Role> roles;
     private List<Issuer> issList;
