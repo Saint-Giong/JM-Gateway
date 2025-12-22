@@ -7,16 +7,8 @@ spring:
         webflux:
           discovery:
             locator:
-              # Set as 'false' since we have the setupRouteConfig()
               enabled: false
               lower-case-service-id: true
-          globalcors:
-            cors-configurations:
-              '[/**]':
-                allowed-origins: '*'
-                allow-credentials: false
-                allowed-methods: '*'
-                allowed-headers: '*'
 
 server:
   port: 8072
