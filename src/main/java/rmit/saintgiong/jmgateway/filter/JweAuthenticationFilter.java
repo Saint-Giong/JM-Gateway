@@ -13,7 +13,6 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 import rmit.saintgiong.jmgateway.common.dto.TokenClaimsDto;
 import rmit.saintgiong.jmgateway.common.utils.JweUtils;
-import rmit.saintgiong.jmgateway.common.utils.RouteValidator;
 
 
 @Component

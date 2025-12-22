@@ -1,4 +1,4 @@
-package rmit.saintgiong.jmgateway.common.utils;
+package rmit.saintgiong.jmgateway.filter;
 
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
@@ -26,15 +26,10 @@ public class RouteValidator {
                     .map(AUTH_PREFIX::concat)
                     .toList();
 
-    public static final List<String> PROFILE_PUBLIC_ENDPOINTS =
-            Stream.<String>empty()
-                    .map(PROFILE_PREFIX::concat)
-                    .toList();
 
     private static final List<String> PUBLIC_ENDPOINTS =
             Stream.of(
-                            AUTH_PUBLIC_ENDPOINTS,
-                            PROFILE_PUBLIC_ENDPOINTS
+                            AUTH_PUBLIC_ENDPOINTS
                     )
                     .flatMap(List::stream)
                     .toList();
