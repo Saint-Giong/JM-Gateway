@@ -42,12 +42,14 @@ public class JweAuthenticationFilter extends AbstractGatewayFilterFactory<JweAut
             }
 
             HttpCookie authCookie = request.getCookies().getFirst("auth_token");
+            log.info("authCookie: {}", authCookie);
             if (authCookie == null) {
                 return onError(exchange, "Missing Authorization Cookie", HttpStatus.UNAUTHORIZED);
             }
 
             String token = authCookie.getValue();
             TokenClaimsDto claimDto = jweUtils.buildTokenClaimsDto(token);
+            log.info(String.valueOf(claimDto));
 
             try {
                 ServerHttpRequest modifiedRequest = exchange.getRequest().mutate()
