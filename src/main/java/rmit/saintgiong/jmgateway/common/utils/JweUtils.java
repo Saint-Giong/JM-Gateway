@@ -29,7 +29,6 @@ import java.util.UUID;
 @Component
 @Slf4j
 public class JweUtils {
-    @Value("${jwe.private-key}")
     private RSAPrivateKey privateKey;
 
     private RsaKeyLoader keyLoader;

@@ -19,10 +19,10 @@ import rmit.saintgiong.jmgateway.common.utils.JweUtils;
 @Slf4j
 public class JweAuthenticationFilter extends AbstractGatewayFilterFactory<JweAuthenticationFilter.Config> {
 
-    private RouteValidator routeValidator;
-    private JweUtils jweUtils;
+    private final RouteValidator routeValidator;
+    private final JweUtils jweUtils;
 
-    public JweAuthenticationFilter(Class<Config> configClass, RouteValidator routeValidator, JweUtils jweUtils) {
+    public JweAuthenticationFilter(RouteValidator routeValidator, JweUtils jweUtils) {
         super(Config.class);
         this.routeValidator = routeValidator;
         this.jweUtils = jweUtils;
