@@ -16,7 +16,14 @@ public class RouteValidator {
 
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
-    public static final List<String> AUTH_PUBLIC_ENDPOINTS =
+    private static final List<String> GLOBAL_PUBLIC_ENDPOINTS =
+            List.of(
+                    "/v1/*/actuator/**",
+                    "/actuator/**",
+                    "/eureka/**"
+            );
+
+    private static final List<String> AUTH_PUBLIC_ENDPOINTS =
             Stream.of(
                             "/google/**",
                             "/register",
@@ -25,12 +32,6 @@ public class RouteValidator {
                     )
                     .map(AUTH_PREFIX::concat)
                     .toList();
-
-    public static final List<String> GLOBAL_PUBLIC_ENDPOINTS = List.of(
-            "/v1/*/actuator/**",
-            "/actuator/**",
-            "/eureka/**"
-    );
 
     private static final List<String> PUBLIC_ENDPOINTS =
             Stream.of(

@@ -32,12 +32,16 @@ public class JweAuthenticationFilter extends AbstractGatewayFilterFactory<JweAut
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
-            if (!routeValidator.isProtected.test(request)) {
+            String path = request.getURI().getPath();
+            boolean isSecured = routeValidator.isProtected.test(request);
+
+            log.info("Incoming Request: {} | Protected: {}", path, isSecured);
+
+            if (!isSecured) {
                 return chain.filter(exchange);
             }
 
             HttpCookie authCookie = request.getCookies().getFirst("auth_token");
-
             if (authCookie == null) {
                 return onError(exchange, "Missing Authorization Cookie", HttpStatus.UNAUTHORIZED);
             }
