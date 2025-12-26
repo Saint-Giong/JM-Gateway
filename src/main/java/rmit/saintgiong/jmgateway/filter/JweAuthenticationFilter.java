@@ -15,7 +15,6 @@ import rmit.saintgiong.shared.type.CookieType;
 @Slf4j
 public class JweAuthenticationFilter extends AbstractGatewayFilterFactory<JweAuthenticationFilter.Config> {
 
-
     public JweAuthenticationFilter() {
         super(Config.class);
     }
@@ -32,7 +31,7 @@ public class JweAuthenticationFilter extends AbstractGatewayFilterFactory<JweAut
 
             // Has TempToken
             if (tempCookie != null) {
-                requestBuilder.header("X-Temp-Token" + tempCookie.getValue());
+                requestBuilder.header("X-Temp-Token", tempCookie.getValue());
             }
 
             // Has RefreshToken (without AccessToken)
