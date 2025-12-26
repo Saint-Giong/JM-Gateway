@@ -16,7 +16,6 @@ public class ProfileRoute {
                         "profile-service-route",
                         p -> p
                                 .path("/v1/profile/**")
-
                                 .filters(
                                         spec -> spec
                                                 .filter(jweAuthenticationFilter.apply(new JweAuthenticationFilter.Config()))

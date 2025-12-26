@@ -10,7 +10,7 @@ COPY SG-SharedDtoPackage/mvnw ./SG-SharedDtoPackage/mvnw
 
 RUN --mount=type=cache,target=/root/.m2 \
     cd SG-SharedDtoPackage && \
-    ./mvnw clean install
+    ./mvnw clean install -DskipTests
 # --------------------
 
 # Maven runner
@@ -35,7 +35,7 @@ COPY JM-Gateway/src ./src
 
 # Build the Spring Boot application
 RUN --mount=type=cache,target=/root/.m2 \
-    ./mvnw clean package
+    ./mvnw clean package -DskipTests
 
 # Application Run
 FROM eclipse-temurin:17-jdk AS runner
