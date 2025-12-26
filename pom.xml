@@ -91,6 +91,11 @@
             <version>0.12.3</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>devision.saintgiong</groupId>
+            <artifactId>sg-shared-dto-package</artifactId>
+            <version>0.0.1-SNAPSHOT-16161325122025</version>
+        </dependency>
 
     </dependencies>
     <dependencyManagement>
