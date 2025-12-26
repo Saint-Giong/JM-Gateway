@@ -18,7 +18,7 @@ COPY JM-Gateway/mvnw .
 COPY JM-Gateway/.mvn .mvn
 
 # Dependency
-COPY JM-Gateway/pom.xml ./pom.xml
+COPY JM-Gateway/pom.xml .
 
 # Copy outside cache
 COPY JM-Gateway/settings.xml /
