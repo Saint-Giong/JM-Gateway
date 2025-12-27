@@ -1,4 +1,4 @@
-package rmit.saintgiong.jmgateway;
+package rmit.saintgiong.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

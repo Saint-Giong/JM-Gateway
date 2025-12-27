@@ -1,10 +1,10 @@
-package rmit.saintgiong.jmgateway.routes;
+package rmit.saintgiong.gateway.routes;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import rmit.saintgiong.jmgateway.filter.JweAuthenticationFilter;
+import rmit.saintgiong.gateway.filter.JweAuthenticationFilter;
 
 @Configuration
 public class AuthRoute {

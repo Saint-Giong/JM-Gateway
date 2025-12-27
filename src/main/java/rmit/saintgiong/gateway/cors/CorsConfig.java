@@ -1,4 +1,4 @@
-package rmit.saintgiong.jmgateway.cors;
+package rmit.saintgiong.gateway.cors;
 
 import java.util.List;
 

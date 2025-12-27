@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>rmit.saintgiong</groupId>
-    <artifactId>JM-Gateway</artifactId>
+    <artifactId>gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>JM-Gateway</name>
     <description>JM-Gateway</description>
