@@ -39,3 +39,25 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://${EUREKA_INSTANCE_HOSTNAME:localhost}:8070/eureka/
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    urls:
+      - name: Authentication Service
+        url: /v1/auth/api-docs
+      - name: Profile Service
+        url: /v1/profile/api-docs
+      - name: Applicant Discovery Service
+        url: /v1/discovery/api-docs
+      - name: Media Service
+        url: /v1/media/api-docs
+      - name: Job Post Service
+        url: /v1/jobpost/api-docs
+      - name: Subscription Service
+        url: /v1/subscription/api-docs
+      - name: Skill Tag Service
+        url: /v1/tag/api-docs
