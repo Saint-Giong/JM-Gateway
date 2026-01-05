@@ -53,11 +53,15 @@ springdoc:
         url: /v1/profile/api-docs
       - name: Applicant Discovery Service
         url: /v1/discovery/api-docs
-      - name: Media Service
-        url: /v1/media/api-docs
       - name: Job Post Service
         url: /v1/jobpost/api-docs
-      - name: Subscription Service
-        url: /v1/subscription/api-docs
+      - name: Media Service
+        url: /v1/media/api-docs
       - name: Skill Tag Service
         url: /v1/tag/api-docs
+      - name: Subscription Service
+        url: /v1/subscription/api-docs
+      - name: Payment Service
+        url: /v1/payment/api-docs
+      - name: Notification Service
+        url: /v1/noti/api-docs
