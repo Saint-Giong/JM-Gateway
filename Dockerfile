@@ -16,6 +16,7 @@ WORKDIR /app
 # Maven runner
 COPY JM-Gateway/mvnw .
 COPY JM-Gateway/.mvn .mvn
+RUN sed -i 's/\r$//' mvnw
 RUN chmod +x mvnw
 
 # Dependency
