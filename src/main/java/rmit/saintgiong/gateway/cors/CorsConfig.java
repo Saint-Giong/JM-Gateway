@@ -11,11 +11,16 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 @Configuration
 public class CorsConfig {
 
+    // Whitelisted frontend origins
+    private static final List<String> ALLOWED_ORIGINS = List.of(
+            "https://localhost:3000",
+            "https://jm.saintgiong.ttr.gg");
+
     @Bean
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOriginPatterns(List.of("*"));
-        config.setAllowedMethods(List.of("*"));
+        config.setAllowedOrigins(ALLOWED_ORIGINS);
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
         config.setMaxAge(3600L);
