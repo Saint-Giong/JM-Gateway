@@ -16,6 +16,7 @@ public class CorsConfig {
     // Whitelisted frontend origins
     private static final List<String> ALLOWED_ORIGINS = List.of(
             "https://localhost:3000",
+            "https://ja.saintgiong.ttr.gg",
             "https://jm.saintgiong.ttr.gg");
 
     @Bean
