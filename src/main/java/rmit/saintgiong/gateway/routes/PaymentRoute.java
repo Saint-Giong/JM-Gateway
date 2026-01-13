@@ -1,6 +1,7 @@
 package rmit.saintgiong.gateway.routes;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.GatewayFilterSpec;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +20,7 @@ public class PaymentRoute {
                                                 p -> p
                                                                 .path("/stripe/webhook")
                                                                 .filters(
-                                                                                spec -> spec
-                                                                                                .preserveHostHeader())
+                                                                        GatewayFilterSpec::preserveHostHeader)
                                                                 .uri("lb://PAYMENT-SERVICE"))
                                 // Regular payment routes - WITH authentication
                                 .route(
