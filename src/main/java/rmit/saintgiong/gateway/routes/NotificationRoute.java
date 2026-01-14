@@ -26,6 +26,20 @@ public class NotificationRoute {
                                 )
                                 .uri("lb://JM-NOTIFICATION-SERVICE")
                 )
+                .route(
+                        "notification-socketio-ws-route",
+                        p -> p
+                                .path("/socket.io/**")
+                                .and()
+                                .header("Upgrade", "websocket")
+                                .uri("ws://notification-service:9092")
+                )
+                .route(
+                        "notification-socketio-http-route",
+                        p -> p
+                                .path("/socket.io/**")
+                                .uri("http://notification-service:9092")
+                )
                 .build();
     }
 }
